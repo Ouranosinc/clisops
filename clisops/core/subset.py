@@ -474,14 +474,18 @@ def create_mask(
         dims_out = x_dim.dims
         coords_out = x_dim.coords
 
-    # try vectorize
+    # vectorize
     mask = np.zeros(lat1.shape) + np.nan
     for pp in reversed(poly.index):
         for vv in poly[poly.index == pp].geometry.values:
-            b1 = vectorized.contains(vv, lon1.flatten(), lat1.flatten()).reshape(
+            contained = vectorized.contains(vv, lon1.flatten(), lat1.flatten()).reshape(
                 lat1.shape
             )
-            mask[b1] = pp
+            touched = vectorized.touches(vv, lon1.flatten(), lat1.flatten()).reshape(
+                lat1.shape
+            )
+            intersection = np.logical_or(contained, touched)
+            mask[intersection] = pp
 
     mask = xarray.DataArray(mask, dims=dims_out, coords=coords_out)
 
@@ -738,6 +742,7 @@ def subset_bbox(
     # Subset lat lon
     >>> prSub = subset_bbox(ds.pr, lon_bnds=[-75, -70], lat_bnds=[40, 45])  # doctest: +SKIP
     """
+
     # Rectilinear case (lat and lon are the 1D dimensions)
     if ("lat" in da.dims) or ("lon" in da.dims):
 
@@ -848,7 +853,7 @@ def in_bounds(bounds: Tuple[float, float], coord: xarray.Coordinate) -> bool:
 
 def _check_desc_coords(coord, bounds, dim):
     """If Dataset coordinates are descending reverse bounds."""
-    if np.all(coord.diff(dim=dim) < 0):
+    if np.all(coord.diff(dim=dim) < 0) and len(coord) > 1:
         bounds = np.flip(bounds)
     return bounds
 
