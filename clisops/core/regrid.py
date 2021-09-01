@@ -22,12 +22,6 @@ except Exception:
     xe = None
 
 
-from roocs_utils.exceptions import InvalidParameterValue
-from roocs_utils.xarray_utils.xarray_utils import get_coord_by_attr, get_coord_by_type
-
-from clisops.utils import dataset_utils
-
-
 def require_xesmf(func):
     "Decorator to ensure that xesmf is installed before function/method is called."
 
