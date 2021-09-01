@@ -1,13 +1,12 @@
 import os
-import sys
-from unittest.mock import Mock
 
 import pytest
+
+# pytestmark = pytest.mark.skip(reason="segmentation failure")
+
 import xarray as xr
 from roocs_grids import grid_dict
 
-import clisops
-from clisops import CONFIG
 from clisops.core.regrid import xe
 from clisops.ops.regrid import regrid
 

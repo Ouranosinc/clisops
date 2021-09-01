@@ -1,9 +1,10 @@
 from pathlib import Path
+from typing import List, Optional, Union
 
 import xarray as xr
 
 from clisops import logging
-from clisops.core import Grid, Weights
+from clisops.core.regrid import Grid, Weights
 from clisops.core import regrid as core_regrid
 from clisops.ops.base_operation import Operation
 from clisops.utils.file_namers import get_file_namer
