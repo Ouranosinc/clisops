@@ -6,16 +6,12 @@ from roocs_utils.parameter import parameterise
 from roocs_utils.parameter.area_parameter import AreaParameter
 from roocs_utils.parameter.level_parameter import LevelParameter
 from roocs_utils.parameter.time_parameter import TimeParameter
-from roocs_utils.xarray_utils.xarray_utils import open_xr_dataset
 
 from clisops import logging
 from clisops.core import subset_bbox, subset_level, subset_time
 from clisops.core.subset import assign_bounds, get_lat, get_lon
 from clisops.ops.base_operation import Operation
-from clisops.utils.common import expand_wildcards
 from clisops.utils.dataset_utils import check_lon_alignment
-from clisops.utils.file_namers import get_file_namer
-from clisops.utils.output_utils import get_output, get_time_slices
 
 __all__ = [
     "subset",

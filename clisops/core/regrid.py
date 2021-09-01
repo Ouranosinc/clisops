@@ -1,14 +1,11 @@
 """Regrid module."""
 import warnings
-from pathlib import Path
-from typing import Tuple, Union
 import functools
 from pkg_resources import parse_version
 
 import cf_xarray as cfxr
 import numpy as np
 import roocs_grids
-import scipy
 import xarray as xr
 
 

@@ -1,5 +1,3 @@
-import platform
-
 import pytest
 import xarray as xr
 

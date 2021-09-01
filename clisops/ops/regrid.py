@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List, Optional, Tuple, Union
 
 import xarray as xr
 
@@ -8,7 +7,6 @@ from clisops.core import Grid, Weights
 from clisops.core import regrid as core_regrid
 from clisops.ops.base_operation import Operation
 from clisops.utils.file_namers import get_file_namer
-from clisops.utils.output_utils import get_output, get_time_slices
 
 __all__ = [
     "regrid",

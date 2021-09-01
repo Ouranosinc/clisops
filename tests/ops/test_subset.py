@@ -8,7 +8,6 @@ from roocs_utils.parameter import area_parameter, time_parameter
 
 from clisops import CONFIG
 from clisops.ops.subset import Subset, subset
-from clisops.utils.file_namers import get_file_namer
 from clisops.utils.output_utils import _format_time
 
 from .._common import (

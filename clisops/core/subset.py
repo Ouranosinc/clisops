@@ -1,5 +1,4 @@
 """Subset module."""
-import logging
 import numbers
 import warnings
 from functools import wraps
