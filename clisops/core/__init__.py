@@ -1,5 +1,3 @@
-# from .regrid import Grid, Weights, regrid
-
 from .subset import (
     create_mask,
     subset_bbox,
@@ -9,6 +7,8 @@ from .subset import (
     subset_time,
 )
 
+from .regrid import Grid, Weights, regrid
+
 __all__ = [
     "create_mask",
     "subset_bbox",
@@ -16,4 +16,7 @@ __all__ = [
     "subset_level",
     "subset_shape",
     "subset_time",
+    "Grid",
+    "Weights",
+    "regrid",
 ]
