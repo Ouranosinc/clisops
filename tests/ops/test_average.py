@@ -37,6 +37,7 @@ def test_average_time_xarray():
     assert "time" not in result[0]
 
 
+@pytest.mark.xfail(reason="Computing the mean of an array containing cftime.datetime objects is not yet implemented on dask arrays.")
 def test_average_lat_xarray():
     result = average_over_dims(
         CMIP5_TAS, dims=["latitude"], ignore_undetected_dims=False, output_type="xarray"
@@ -45,6 +46,7 @@ def test_average_lat_xarray():
     assert "lat" not in result[0]
 
 
+@pytest.mark.xfail(reason="Computing the mean of an array containing cftime.datetime objects is not yet implemented on dask arrays.")
 def test_average_lon_xarray():
     result = average_over_dims(
         CMIP5_TAS,
@@ -76,6 +78,7 @@ def test_average_time_nc(tmpdir):
     _check_output_nc(result, fname="tas_mon_HadGEM2-ES_rcp85_r1i1p1_avg-t.nc")
 
 
+@pytest.mark.xfail(reason="Computing the mean of an array containing cftime.datetime objects is not yet implemented on dask arrays.")
 def test_average_lat_nc(tmpdir):
     result = average_over_dims(
         CMIP5_TAS,
@@ -91,6 +94,7 @@ def test_average_lat_nc(tmpdir):
     )
 
 
+@pytest.mark.xfail(reason="Computing the mean of an array containing cftime.datetime objects is not yet implemented on dask arrays.")
 def test_average_lon_nc(tmpdir):
     result = average_over_dims(
         CMIP5_TAS,
