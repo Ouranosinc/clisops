@@ -2,11 +2,9 @@ from pathlib import Path
 from clisops.ops.subset import subset
 
 from .._common import (
+    _check_output_nc,
     C3S_CORDEX_PSL,
 )
-
-def _check_output_nc(result, fname="output_001.nc"):
-    assert fname in [Path(_).name for _ in result]
 
 
 def test_subset_time_cordex(load_esgf_test_data, tmpdir):

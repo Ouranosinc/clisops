@@ -22,6 +22,8 @@ XCLIM_TESTS_DATA = Path(TESTS_HOME, "xclim-testdata/testdata").as_posix()
 MINI_ESGF_CACHE_DIR = Path.home() / ".mini-esgf-data"
 MINI_ESGF_MASTER_DIR = os.path.join(MINI_ESGF_CACHE_DIR, "master")
 
+def _check_output_nc(result, fname="output_001.nc"):
+    assert fname in [Path(_).name for _ in result]
 
 def write_roocs_cfg():
     cfg_templ = """

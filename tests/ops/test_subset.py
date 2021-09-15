@@ -12,6 +12,7 @@ from clisops.utils.file_namers import get_file_namer
 from clisops.utils.output_utils import _format_time
 
 from .._common import (
+    _check_output_nc,
     C3S_CMIP5_TOS,
     C3S_CMIP5_TSICE,
     CMIP5_RH,
@@ -26,10 +27,6 @@ from .._common import (
     CMIP6_TOS,
     CMIP6_TOS_ONE_TIME_STEP,
 )
-
-
-def _check_output_nc(result, fname="output_001.nc"):
-    assert fname in [Path(_).name for _ in result]
 
 
 def _load_ds(fpath):

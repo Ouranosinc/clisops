@@ -10,11 +10,10 @@ import clisops
 from clisops import CONFIG
 from clisops.ops.average import average_over_dims
 
-from .._common import CMIP5_TAS
-
-
-def _check_output_nc(result, fname="output_001.nc"):
-    assert fname in [os.path.basename(_) for _ in result]
+from .._common import (
+    _check_output_nc,
+    CMIP5_TAS,
+)
 
 
 def _load_ds(fpath):
